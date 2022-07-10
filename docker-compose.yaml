@@ -1,0 +1,19 @@
+version: '3.7'
+
+services:
+  mysql:
+    container_name: passion_factory_mysql
+    platform: linux/x86_64
+    image: mysql:8.0.29
+    ports:
+      - '33060:3306'
+    environment:
+      - MYSQL_DATABASE=passion_factory
+      - MYSQL_ROOT_PASSWORD=passion_factory_password
+      - MYSQL_USER=passion_factory
+      - MYSQL_PASSWORD=passion_factory_password
+    command:
+      - --character-set-server=utf8mb4
+    volumes:
+      - ./.mysql/conf.d:/etc/mysql/conf.d
+      - ./.mysql/data:/var/lib/mysql
