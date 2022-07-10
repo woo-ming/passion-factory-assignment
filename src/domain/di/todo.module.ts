@@ -15,4 +15,4 @@ const serviceProviders: Provider[] = [
   providers: [...serviceProviders],
   exports: [...serviceProviders],
 })
-export class DomainUserModule {}
+export class DomainTodoModule {}

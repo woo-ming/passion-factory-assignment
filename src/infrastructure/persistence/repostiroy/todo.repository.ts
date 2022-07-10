@@ -1,3 +1,4 @@
+import { Injectable } from '@nestjs/common';
 import { InjectDataSource } from '@nestjs/typeorm';
 import { EntityNotFoundError } from 'src/common/exception/error';
 import { Todo } from 'src/domain/entity/todo';
@@ -5,6 +6,7 @@ import { TodoRepository } from 'src/domain/repository/todo.repository';
 import { DataSource, Repository } from 'typeorm';
 import { TodoEntity } from '../entity/todo.entity';
 
+@Injectable()
 export class TodoRepositoryImpl implements TodoRepository {
   private readonly todoRepository: Repository<TodoEntity>;
 
@@ -44,5 +46,9 @@ export class TodoRepositoryImpl implements TodoRepository {
 
   async store(todo: Todo): Promise<Todo> {
     return new Todo(await this.todoRepository.save(todo));
+  }
+
+  async delete(id: number): Promise<void> {
+    await this.todoRepository.delete(id);
   }
 }

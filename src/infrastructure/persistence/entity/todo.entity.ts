@@ -12,8 +12,8 @@ export class TodoEntity {
   id?: number;
   @Column({ length: 255 })
   name: string;
-  @Column({ type: 'boolean', default: false })
-  completed?: boolean;
+  @Column({ type: 'boolean' })
+  completed: boolean;
   @Column({ type: 'datetime', nullable: true })
   completedAt: Date | null;
   @CreateDateColumn()

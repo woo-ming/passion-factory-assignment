@@ -9,15 +9,15 @@ export class Todo {
   constructor({
     id,
     name,
-    completed = false,
-    completedAt,
+    completed,
+    completedAt = null,
     createdAt,
     updatedAt,
   }: {
     id?: number;
     name: string;
-    completed?: boolean;
-    completedAt: Date | null;
+    completed: boolean;
+    completedAt?: Date | null;
     createdAt?: Date;
     updatedAt?: Date;
   }) {
@@ -29,8 +29,11 @@ export class Todo {
     this.updatedAt = updatedAt;
   }
 
-  complete(): void {
-    this.completed = true;
-    this.completedAt = null;
+  modify({ completed, name }: { completed?: boolean; name?: string }): void {
+    if (completed) {
+      this.completed = completed;
+      this.completedAt = completed ? new Date() : null;
+    }
+    if (name) this.name = name;
   }
 }
