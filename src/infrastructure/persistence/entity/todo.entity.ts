@@ -2,13 +2,13 @@ import {
   Column,
   CreateDateColumn,
   Entity,
-  PrimaryColumn,
+  PrimaryGeneratedColumn,
   UpdateDateColumn,
 } from 'typeorm';
 
 @Entity('todo')
 export class TodoEntity {
-  @PrimaryColumn()
+  @PrimaryGeneratedColumn()
   id?: number;
   @Column({ length: 255 })
   name: string;
