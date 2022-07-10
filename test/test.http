@@ -1,0 +1,26 @@
+@URL = https://todos.dietfriends.kr
+
+
+###
+GET {{URL}}/todos?apikey=123
+Content-Type: application/json; charset=utf-8
+
+{
+    
+}
+
+###
+GET  {{URL}}/todos/:id
+Content-Type: application/json; charset=utf-8
+
+{
+    
+}
+
+###
+POST {{URL}}/todos/apikey=123
+Content-Type: application/json; charset=utf-8
+
+{
+
+}
